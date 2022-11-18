@@ -1,12 +1,15 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1>Movie List</h1>
+<p>Interesting Movies</p>
 <br>
 <%=@list.name%>
 <% @list.bookmarks.each do |bookmark| %>
-  <div>
-    <p><%= image_tag bookmark.movie.poster_url, width:50 %></p>
-    <%= bookmark.movie.title %>
-    <%= link_to 'Delete Bookmark', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+  <div class="card rounded-4" style="width: 18rem;">
+    <%= image_tag bookmark.movie.poster_url, width:50, class: "card-img-top rounded-top", alt:"image" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= bookmark.movie.title %></h5>
+      <p class="card-text"><%= bookmark.movie.overview%></p>
+      <%= link_to 'Delete Bookmark', bookmark_path(bookmark), class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    </div>
   </div>
 <% end %>
 

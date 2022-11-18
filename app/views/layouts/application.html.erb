@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+  <nav class="navbar navbar-dark bg-dark px-3">
+    <div class="container-fluid">
+      <%= link_to "Movie Lists", lists_path, class: "navbar-brand"  %>
+      <%= link_to "Add a list", lists_new_path, class: 'btn btn-light' %>
+    </div>
+  </nav>
+    <div class="container p-5">
+      <%= yield %>
+    </div>
   </body>
 </html>
